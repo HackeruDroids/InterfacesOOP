@@ -1,9 +1,11 @@
 package edu.tomer.java;
 
+import java.util.Comparator;
+
 /**
  * Created by hackeru on 02/03/2017.
  */
-public class Person implements IsWarmBlooded, Comparable<Person>{
+public class Person implements IsWarmBlooded, Comparable<Person>, Comparator<Person>{
     private String firstName;
     private String lastName;
 
@@ -25,7 +27,10 @@ public class Person implements IsWarmBlooded, Comparable<Person>{
             return firstDiff;
         else return this.lastName.compareTo(other.lastName);
     }
-
+    @Override
+    public int compare(Person o1, Person o2) {
+        return o1.compareTo(o2);
+    }
 
     @Override
     public String toString() {
@@ -34,4 +39,6 @@ public class Person implements IsWarmBlooded, Comparable<Person>{
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
+
 }
